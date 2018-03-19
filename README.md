@@ -12,7 +12,7 @@ Error Prompt: ![error-prompt](https://raw.githubusercontent.com/vpistis/fish-kub
 If you want to customize, override the following environment variables.
 
 set KUBECTL_PROMPT_ICON "⎈"
-set KUBECTL_PROMPT_SEPARATOR "/"
+set KUBECTL_PROMPT_SEPARATOR "|"
 
 ## Install
 
