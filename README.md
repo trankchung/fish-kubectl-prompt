@@ -23,4 +23,4 @@ fisher vpistis/fish-kubectl-prompt
 [fisherman]: https://github.com/fisherman/fisherman
 
 ## Disclaimer
-This is a variant of the project: https://github.com/Ladicle/fish-kubectl-prompt
+This is a variant of the project https://github.com/Ladicle/fish-kubectl-prompt adding toggle on/off from https://github.com/aluxian/fish-kube-prompt and other stuffs.
