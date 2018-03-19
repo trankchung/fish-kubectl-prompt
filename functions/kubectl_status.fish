@@ -17,5 +17,5 @@ function kubectl_status
   set -l ns (kubectl config view -o "jsonpath={.contexts[?(@.name==\"$context\")].context.namespace}")
   [ -z $ns ]; and set -l ns 'default'
 
-  echo (set_color blue)$KUBECTL_PROMPT_ICON" "(set_color cyan)"$context"(set_color white)"$KUBECTL_PROMPT_SEPARATOR"(set_color yellow)"$ns"
+  echo (set_color blue)$KUBECTL_PROMPT_ICON" "(set_color cyan)"($context"(set_color white)"$KUBECTL_PROMPT_SEPARATOR"(set_color yellow)"$ns)"
 end
