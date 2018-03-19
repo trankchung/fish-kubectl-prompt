@@ -1,4 +1,9 @@
 function kubectl_status
+  
+  if test -z "$__kube_ps_enabled"; or test $__kube_ps_enabled -ne 1
+    return
+  end
+  
   [ -z "$KUBECTL_PROMPT_ICON" ]; and set -l KUBECTL_PROMPT_ICON "⎈"
   [ -z "$KUBECTL_PROMPT_SEPARATOR" ]; and set -l KUBECTL_PROMPT_SEPARATOR "|"
   set -l config $KUBECONFIG
