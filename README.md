@@ -22,5 +22,13 @@ fisher vpistis/fish-kubectl-prompt
 ```
 [fisherman]: https://github.com/fisherman/fisherman
 
-## Disclaimer
+## Use
+
+You can toggle the prompt on or off like this:
+```
+kube_ps on
+kube_ps off
+```
+
+## Credits
 This is a variant of the project https://github.com/Ladicle/fish-kubectl-prompt adding toggle on/off from https://github.com/aluxian/fish-kube-prompt and other stuffs.
