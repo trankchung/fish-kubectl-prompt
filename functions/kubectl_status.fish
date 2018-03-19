@@ -8,7 +8,7 @@ function kubectl_status
     return
   end
 
-  set -l ctx (kubectl config current-context 2>/dev/null)
+  set -l context (kubectl config current-context 2>/dev/null)
   if [ $status -ne 0 ]
     echo (set_color red)$KUBECTL_PROMPT_ICON" "(set_color white)"no context"
     return
