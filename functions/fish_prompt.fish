@@ -1,9 +1,26 @@
-function fish_prompt
-  set -l time (set_color yellow)(date "+(%H:%M:%S)")
-  set -l dir (set_color white)"["(prompt_pwd)"]"
-  set -l git (set_color green)(git rev-parse --abbrev-ref HEAD 2>/dev/null; or echo "")
-  set -l cursor (set_color red)"❯"(set_color yellow)"❯"(set_color green)"❯ "
+function fish_prompt --description 'Write out the prompt'
+    # Just calculate this once, to save a few cycles when displaying the prompt
+    if not set -q __fish_prompt_hostname
+        set -g __fish_prompt_hostname (hostname|cut -d . -f 1)
+    end
 
-  echo $dir $time $git
-  echo $cursor
+    set -l color_cwd
+    set -l suffix
+    switch $USER
+        case root toor
+            if set -q fish_color_cwd_root
+                set color_cwd $fish_color_cwd_root
+            else
+                set color_cwd $fish_color_cwd
+            end
+            set suffix '#'
+        case '*'
+            set color_cwd $fish_color_cwd
+            set suffix '>'
+    end
+    if set -q VIRTUAL_ENV
+        echo -n -s (set_color -b blue white) "(" (basename "$VIRTUAL_ENV") ")" (set_color normal) "$USER" @ "$__fish_prompt_hostname" (set_color blue) (kubectl_status) ' ' (set_color $color_cwd) (prompt_pwd) (set_color normal) "$suffix "
+    else
+        echo -n -s "$USER" @ "$__fish_prompt_hostname" (set_color blue) (kubectl_status) ' ' (set_color $color_cwd) (prompt_pwd) (set_color normal) "$suffix "
+    end
 end
