@@ -18,7 +18,7 @@ set KUBECTL_PROMPT_SEPARATOR "|"
 
 With [fisherman]
 ```
-fisher vpistis/fish-kubectl-prompt
+fisher add vpistis/fish-kubectl-prompt
 ```
 [fisherman]: https://github.com/fisherman/fisherman
 
